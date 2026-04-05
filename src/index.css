@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-0 outline-none;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --scrollbar-thumb: #333;
+    --scrollbar-track: #111;
+  }
+
+  .light {
+    --scrollbar-thumb: #ccc;
+    --scrollbar-track: #f0f0f0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-black text-white antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body.light {
+    @apply bg-white text-black;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: 0.8;
+  }
+}
+
+@layer components {
+  .card-dark {
+    @apply bg-[#111111] border border-[#1a1a1a] rounded-xl;
+  }
+  .card-light {
+    @apply bg-white border border-[#e5e5e5] rounded-xl shadow-sm;
+  }
+  .text-muted-dark {
+    @apply text-[#888888];
+  }
+  .text-muted-light {
+    @apply text-[#737373];
+  }
+  .hover-dark {
+    @apply hover:bg-[#1a1a1a] transition-colors duration-150;
+  }
+  .hover-light {
+    @apply hover:bg-[#f5f5f5] transition-colors duration-150;
+  }
+  .input-dark {
+    @apply bg-[#111111] border border-[#2a2a2a] text-white placeholder-[#555] rounded-lg px-3 py-2 text-sm focus:border-white/30 focus:ring-0 transition-colors;
+  }
+  .input-light {
+    @apply bg-white border border-[#e5e5e5] text-black placeholder-[#aaa] rounded-lg px-3 py-2 text-sm focus:border-black/30 focus:ring-0 transition-colors;
+  }
+  .btn-primary-dark {
+    @apply bg-white text-black px-4 py-2 rounded-lg text-sm font-medium hover:bg-white/90 transition-all active:scale-95;
+  }
+  .btn-primary-light {
+    @apply bg-black text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-black/90 transition-all active:scale-95;
+  }
+  .shimmer-dark {
+    background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  .shimmer-light {
+    background: linear-gradient(90deg, #f5f5f5 25%, #ebebeb 50%, #f5f5f5 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+  }
+
+  .stat-up {
+    @apply text-emerald-500 text-xs font-medium flex items-center gap-0.5;
+  }
+  .stat-down {
+    @apply text-red-500 text-xs font-medium flex items-center gap-0.5;
+  }
+
+  .badge {
+    @apply text-[10px] font-semibold px-2 py-0.5 rounded-full tracking-wide uppercase;
+  }
+
+  .table-row-hover {
+    @apply transition-colors duration-100;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .grid-pattern {
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .grid-pattern-light {
+    background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}
+
+/* Recharts overrides */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255,255,255,0.05) !important;
+}
+.light .recharts-cartesian-grid-horizontal line,
+.light .recharts-cartesian-grid-vertical line {
+  stroke: rgba(0,0,0,0.06) !important;
+}
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
