@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { selectAllTransactions } from "../../../Zorvyn-task/src/store/slices/transactionsSlice";
-import { selectFilters } from "../../../Zorvyn-task/src/store/slices/filtersSlice";
+import { selectAllTransactions } from "../store/slices/transactionsSlice";
+import { selectFilters } from "../store/slices/filtersSlice";
 import { subDays, parseISO, isAfter } from "date-fns";
 
 export const useFilteredTransactions = () => {

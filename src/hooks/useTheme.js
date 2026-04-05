@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, toggleTheme, setTheme } from "../../../Zorvyn-task/src/store/slices/uiSlice";
+import { selectTheme, toggleTheme, setTheme } from "../store/slices/uiSlice";
 
 export const useTheme = () => {
   const dispatch = useDispatch();
